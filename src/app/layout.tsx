@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
+import Providers from "@/components/Providers";
 import {
   DEFAULT_DESCRIPTION,
   DEFAULT_TITLE,
@@ -83,10 +84,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        <Navbar />
-        <Breadcrumb />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <Providers>
+          <Navbar />
+          <Breadcrumb />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

@@ -1,3 +1,5 @@
+import BuyButton from "@/components/BuyButton";
+
 export default function ProLock({
   children,
   title,
@@ -48,27 +50,7 @@ export default function ProLock({
           </p>
 
           {/* CTA Button */}
-          <a
-            href="https://rzp.io/rzp/XfnL9M7F"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-3 text-sm font-bold text-white shadow-xl shadow-violet-500/40 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-violet-500/60"
-          >
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              />
-            </svg>
-            Buy Pro Plan — ₹69 Lifetime
-          </a>
+          <BuyButton className="mt-6">Buy Pro Plan — ₹69 Lifetime</BuyButton>
         </div>
       </div>
     </div>
