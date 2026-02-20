@@ -1,4 +1,5 @@
 import CodePreview from "@/components/CodePreview";
+import ProLock from "@/components/ProLock";
 
 export default function NeumorphismShowcase() {
   return (
@@ -461,6 +462,118 @@ export default function NeumorphismShowcase() {
               </div>
             </div>
           </CodePreview>
+        </section>
+        {/* Premium: Neumorphic Music Player */}
+        <section className="mt-16">
+          <ProLock title="Neumorphic Music Player">
+            <CodePreview
+              title="Neumorphic Music Player"
+              description="Soft UI music player with embossed controls, progress slider, and clay-like album art."
+              dark={false}
+              code={`<div>Neumorphic Music Player Premium</div>`}
+            >
+              <div className="mx-auto max-w-xs rounded-3xl bg-[#e0e5ec] p-8" style={{ boxShadow: "10px 10px 30px #b8bec7, -10px -10px 30px #ffffff" }}>
+                {/* Album art */}
+                <div className="mx-auto h-40 w-40 rounded-3xl" style={{ background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", boxShadow: "8px 8px 20px #b8bec7, -8px -8px 20px #ffffff" }}>
+                  <div className="flex h-full items-center justify-center text-4xl">🎵</div>
+                </div>
+                <div className="mt-6 text-center">
+                  <h3 className="text-lg font-bold text-slate-700">Chill Vibes</h3>
+                  <p className="text-sm text-slate-400">Lo-fi Collection</p>
+                </div>
+                {/* Progress */}
+                <div className="mt-5 rounded-full bg-[#e0e5ec] p-1" style={{ boxShadow: "inset 4px 4px 8px #b8bec7, inset -4px -4px 8px #ffffff" }}>
+                  <div className="h-2 w-2/3 rounded-full" style={{ background: "linear-gradient(90deg, #667eea, #764ba2)" }} />
+                </div>
+                <div className="mt-2 flex justify-between text-xs text-slate-400"><span>1:45</span><span>3:20</span></div>
+                {/* Controls */}
+                <div className="mt-5 flex items-center justify-center gap-6">
+                  {["⏮", "▶", "⏭"].map((icon, i) => (
+                    <button key={icon} className={`flex items-center justify-center rounded-full bg-[#e0e5ec] text-slate-600 transition active:shadow-none ${i === 1 ? "h-14 w-14 text-xl" : "h-10 w-10 text-sm"}`}
+                      style={{ boxShadow: i === 1 ? "6px 6px 15px #b8bec7, -6px -6px 15px #ffffff" : "4px 4px 10px #b8bec7, -4px -4px 10px #ffffff" }}>
+                      {icon}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+        </section>
+
+        {/* Premium: Neumorphic Smart Home Panel */}
+        <section className="mt-16">
+          <ProLock title="Neumorphic Smart Home Panel">
+            <CodePreview
+              title="Neumorphic Smart Home Panel"
+              description="Soft UI smart home control panel with device toggles, temperature slider, and room cards."
+              dark={false}
+              code={`<div>Smart Home Panel Premium</div>`}
+            >
+              <div className="rounded-3xl bg-[#e0e5ec] p-8" style={{ boxShadow: "10px 10px 30px #b8bec7, -10px -10px 30px #ffffff" }}>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-700">Smart Home</h3>
+                    <p className="text-sm text-slate-400">3 rooms active</p>
+                  </div>
+                  <div className="rounded-2xl bg-[#e0e5ec] p-3 text-2xl" style={{ boxShadow: "5px 5px 15px #b8bec7, -5px -5px 15px #ffffff" }}>🏠</div>
+                </div>
+                <div className="mt-6 grid grid-cols-2 gap-4">
+                  {[
+                    { room: "Living Room", temp: "24°C", icon: "🛋", on: true },
+                    { room: "Bedroom", temp: "22°C", icon: "🛏", on: false },
+                    { room: "Kitchen", temp: "26°C", icon: "🍳", on: true },
+                    { room: "Office", temp: "23°C", icon: "💼", on: true },
+                  ].map((room) => (
+                    <div key={room.room} className="rounded-2xl bg-[#e0e5ec] p-4" style={{ boxShadow: room.on ? "inset 4px 4px 10px #b8bec7, inset -4px -4px 10px #ffffff" : "4px 4px 10px #b8bec7, -4px -4px 10px #ffffff" }}>
+                      <div className="text-xl">{room.icon}</div>
+                      <div className="mt-2 text-xs font-semibold text-slate-600">{room.room}</div>
+                      <div className="text-xs text-slate-400">{room.temp}</div>
+                      <div className={`mt-2 h-1.5 w-8 rounded-full ${room.on ? "bg-indigo-500" : "bg-slate-300"}`} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+        </section>
+
+        {/* Premium: Neumorphic Credit Card UI */}
+        <section className="mt-16">
+          <ProLock title="Neumorphic Credit Card">
+            <CodePreview
+              title="Neumorphic Credit Card"
+              description="Soft embossed credit card UI with raised number fields, chip, and card details."
+              dark={false}
+              code={`<div>Neumorphic Credit Card Premium</div>`}
+            >
+              <div className="mx-auto max-w-sm space-y-6">
+                {/* Card */}
+                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-6" style={{ boxShadow: "10px 10px 30px #b8bec7, -10px -10px 30px #ffffff" }}>
+                  <div className="flex justify-between">
+                    <div className="text-sm font-bold text-white/70">UIDrops Bank</div>
+                    <div className="text-sm font-bold text-white">VISA</div>
+                  </div>
+                  <div className="mt-6 h-8 w-12 rounded-md bg-amber-400/80" />
+                  <div className="mt-4 text-xl font-mono font-bold tracking-widest text-white">•••• •••• •••• 4242</div>
+                  <div className="mt-4 flex justify-between text-xs text-white/70">
+                    <div><div className="text-white/40">CARD HOLDER</div><div className="text-white font-medium">Arjun Kapoor</div></div>
+                    <div><div className="text-white/40">EXPIRES</div><div className="text-white font-medium">12/28</div></div>
+                  </div>
+                </div>
+                {/* Add card form */}
+                <div className="rounded-2xl bg-[#e0e5ec] p-6" style={{ boxShadow: "8px 8px 20px #b8bec7, -8px -8px 20px #ffffff" }}>
+                  <input placeholder="Card Number" className="w-full rounded-xl bg-[#e0e5ec] px-4 py-3 text-sm text-slate-600 outline-none placeholder-slate-400" style={{ boxShadow: "inset 4px 4px 8px #b8bec7, inset -4px -4px 8px #ffffff" }} />
+                  <div className="mt-3 grid grid-cols-2 gap-3">
+                    <input placeholder="MM / YY" className="rounded-xl bg-[#e0e5ec] px-4 py-3 text-sm text-slate-600 outline-none placeholder-slate-400" style={{ boxShadow: "inset 4px 4px 8px #b8bec7, inset -4px -4px 8px #ffffff" }} />
+                    <input placeholder="CVV" className="rounded-xl bg-[#e0e5ec] px-4 py-3 text-sm text-slate-600 outline-none placeholder-slate-400" style={{ boxShadow: "inset 4px 4px 8px #b8bec7, inset -4px -4px 8px #ffffff" }} />
+                  </div>
+                  <button className="mt-4 w-full rounded-xl bg-[#e0e5ec] py-3 text-sm font-bold text-indigo-500 transition" style={{ boxShadow: "5px 5px 15px #b8bec7, -5px -5px 15px #ffffff" }}>
+                    Add Card
+                  </button>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
         </section>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import CodePreview from "@/components/CodePreview";
+import ProLock from "@/components/ProLock";
 
 export default function GamingShowcase() {
   return (
@@ -486,6 +487,124 @@ export default function GamingShowcase() {
             </div>
           </div>
         </CodePreview>
+
+        {/* PREMIUM: Gaming Leaderboard */}
+        <ProLock title="Gaming Leaderboard">
+          <CodePreview
+            title="Gaming Leaderboard"
+            description="Competitive ranked leaderboard with XP bars, rank badges, and player stats."
+            dark={true}
+            code={`<div>Gaming Leaderboard Premium</div>`}
+          >
+            <div className="overflow-hidden rounded-2xl border border-red-500/20 bg-slate-900">
+              <div className="border-b border-red-500/20 bg-gradient-to-r from-red-900/30 to-orange-900/20 px-6 py-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-xl">🏆</span>
+                  <h3 className="font-black uppercase tracking-wider text-red-400">Global Leaderboard</h3>
+                  <span className="ml-auto rounded-full border border-red-500/30 bg-red-500/10 px-2 py-0.5 text-xs text-red-400">SEASON 7</span>
+                </div>
+              </div>
+              <div className="divide-y divide-slate-800">
+                {[
+                  { rank: 1, name: "CyberNinja_X", score: "48,920", kd: "8.4", badge: "🥇", color: "text-yellow-400" },
+                  { rank: 2, name: "DarkMatter99", score: "45,110", kd: "7.1", badge: "🥈", color: "text-slate-300" },
+                  { rank: 3, name: "GhostProtocol", score: "41,880", kd: "6.8", badge: "🥉", color: "text-amber-600" },
+                  { rank: 4, name: "NeonReaper", score: "38,240", kd: "5.9", badge: "4", color: "text-slate-400" },
+                  { rank: 5, name: "QuantumBlade", score: "35,700", kd: "5.2", badge: "5", color: "text-slate-400" },
+                ].map((player) => (
+                  <div key={player.rank} className="flex items-center gap-4 px-6 py-3 transition hover:bg-slate-800/50">
+                    <div className={`w-6 text-center font-black ${player.color}`}>{player.badge}</div>
+                    <div className="h-8 w-8 rounded-full bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-xs font-bold text-white">
+                      {player.name[0]}
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-bold text-white">{player.name}</p>
+                      <p className="text-xs text-slate-400">K/D: {player.kd}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm font-black text-red-400">{player.score}</p>
+                      <p className="text-xs text-slate-400">XP</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </CodePreview>
+        </ProLock>
+
+        {/* PREMIUM: Achievement System */}
+        <ProLock title="Gaming Achievement System">
+          <CodePreview
+            title="Gaming Achievement System"
+            description="Achievement cards with rarity tiers, progress tracking, and unlock status indicators."
+            dark={true}
+            code={`<div>Gaming Achievements Premium</div>`}
+          >
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {[
+                { title: "Speed Demon", desc: "Win 10 matches in under 5 minutes", icon: "⚡", rarity: "LEGENDARY", color: "from-yellow-500 to-orange-500", border: "border-yellow-500/40", unlocked: true },
+                { title: "Ghost Protocol", desc: "Complete a mission without being detected", icon: "👻", rarity: "EPIC", color: "from-purple-500 to-violet-500", border: "border-purple-500/40", unlocked: true },
+                { title: "Iron Shield", desc: "Block 1000 damage in a single match", icon: "🛡", rarity: "RARE", color: "from-blue-500 to-cyan-500", border: "border-blue-500/40", unlocked: false },
+              ].map((ach) => (
+                <div key={ach.title} className={`relative overflow-hidden rounded-2xl border bg-slate-900 p-4 ${ach.border} ${!ach.unlocked ? "opacity-50" : ""}`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${ach.color} opacity-5`} />
+                  <div className="relative">
+                    <div className="flex items-start justify-between">
+                      <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${ach.color} text-2xl shadow-lg`}>{ach.icon}</div>
+                      <span className={`rounded-full bg-gradient-to-r ${ach.color} px-2 py-0.5 text-xs font-black text-white`}>{ach.rarity}</span>
+                    </div>
+                    <h3 className="mt-3 font-black text-white">{ach.title}</h3>
+                    <p className="mt-1 text-xs text-slate-400">{ach.desc}</p>
+                    <div className="mt-3 flex items-center gap-2">
+                      <div className={`h-1.5 flex-1 rounded-full ${ach.unlocked ? `bg-gradient-to-r ${ach.color}` : "bg-slate-700"}`} />
+                      <span className="text-xs text-slate-400">{ach.unlocked ? "✓ Unlocked" : "Locked"}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CodePreview>
+        </ProLock>
+
+        {/* PREMIUM: Gaming Store */}
+        <ProLock title="Gaming Store UI">
+          <CodePreview
+            title="Gaming Store UI"
+            description="In-game store with item cards, rarity indicators, coin prices, and buy buttons."
+            dark={true}
+            code={`<div>Gaming Store Premium</div>`}
+          >
+            <div className="space-y-4">
+              <div className="flex items-center justify-between rounded-xl border border-yellow-500/20 bg-slate-900 px-5 py-3">
+                <h3 className="font-black uppercase tracking-wider text-white">Item Shop</h3>
+                <div className="flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-3 py-1">
+                  <span>🪙</span>
+                  <span className="font-black text-yellow-400">2,400</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+                {[
+                  { name: "Dragon Skin", type: "Weapon Skin", price: 800, icon: "🐉", rarity: "EPIC", color: "from-purple-600 to-violet-600" },
+                  { name: "Neon Wings", type: "Back Bling", price: 500, icon: "🦋", rarity: "RARE", color: "from-cyan-500 to-blue-500" },
+                  { name: "Fire Storm", type: "Emote", price: 300, icon: "🔥", rarity: "UNCOMMON", color: "from-orange-500 to-red-500" },
+                  { name: "Gold Crown", type: "Hat", price: 1200, icon: "👑", rarity: "LEGENDARY", color: "from-yellow-500 to-amber-500" },
+                ].map((item) => (
+                  <div key={item.name} className="overflow-hidden rounded-2xl border border-slate-700 bg-slate-900">
+                    <div className={`flex h-28 items-center justify-center bg-gradient-to-br ${item.color} text-4xl`}>{item.icon}</div>
+                    <div className="p-3">
+                      <div className={`text-xs font-black bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>{item.rarity}</div>
+                      <p className="text-sm font-bold text-white">{item.name}</p>
+                      <p className="text-xs text-slate-400">{item.type}</p>
+                      <button className="mt-2 flex w-full items-center justify-center gap-1 rounded-lg bg-yellow-500/20 py-1.5 text-xs font-black text-yellow-400 transition hover:bg-yellow-500/30">
+                        🪙 {item.price}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </CodePreview>
+        </ProLock>
       </div>
     </div>
   );

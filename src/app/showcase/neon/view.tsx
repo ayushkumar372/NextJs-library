@@ -1,6 +1,7 @@
 "use client";
 
 import CodePreview from "@/components/CodePreview";
+import ProLock from "@/components/ProLock";
 
 export default function NeonShowcase() {
   return (
@@ -592,6 +593,100 @@ export default function NeonShowcase() {
               <h2 className="text-3xl font-black text-neon-yellow" style={{ textShadow: "0 0 7px #ffe600, 0 0 10px #ffe600, 0 0 21px #ffe600, 0 0 42px #ffe600" }}>NEON YELLOW GLOW</h2>
             </div>
           </CodePreview>
+        </div>
+        {/* Neon Club Event Poster - Premium */}
+        <div className="mt-12">
+          <ProLock title="Neon Club Event Poster">
+            <CodePreview
+              title="Neon Club Event Poster"
+              description="Vibrant neon event poster with glowing text, animated borders, and electric atmosphere."
+              dark={true}
+              code={`<div>Neon Club Poster Premium</div>`}
+            >
+              <div className="mx-auto max-w-sm overflow-hidden rounded-3xl border-2 border-pink-500 bg-cyber-bg" style={{ boxShadow: "0 0 30px #ff2d78, 0 0 60px #ff2d7840" }}>
+                <div className="relative p-8 text-center">
+                  <div className="text-xs font-bold uppercase tracking-[0.5em] text-neon-blue">Saturday Night</div>
+                  <div className="mt-2 text-6xl font-black uppercase leading-none" style={{ color: "#ff2d78", textShadow: "0 0 10px #ff2d78, 0 0 40px #ff2d78, 0 0 80px #ff2d78" }}>NEON<br/>NIGHTS</div>
+                  <div className="mt-1 text-sm font-bold uppercase tracking-[0.3em] text-neon-blue">Vol. 07</div>
+                  <div className="my-6 h-px w-full bg-gradient-to-r from-transparent via-pink-500 to-transparent" />
+                  <div className="space-y-1 text-sm">
+                    <div className="text-white">DJ SYNTHWAVE &amp; CYBER COLLECTIVE</div>
+                    <div className="text-white/40">March 15 • Club Aurora • 10PM - 6AM</div>
+                  </div>
+                  <button className="mt-6 w-full rounded-full border-2 border-neon-pink bg-neon-pink/10 py-3 text-sm font-bold text-neon-pink transition hover:bg-neon-pink hover:text-white" style={{ boxShadow: "0 0 10px #ff2d78" }}>
+                    GET TICKETS
+                  </button>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+        </div>
+
+        {/* Neon Dashboard Stats - Premium */}
+        <div className="mt-12">
+          <ProLock title="Neon Dashboard Stats">
+            <CodePreview
+              title="Neon Dashboard Stats"
+              description="Dark dashboard with neon-glowing stat cards, progress bars, and live indicators."
+              dark={true}
+              code={`<div>Neon Dashboard Premium</div>`}
+            >
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+                  {[
+                    { label: "Revenue", value: "₹4.2L", color: "#ff2d78", glow: "#ff2d78" },
+                    { label: "Users", value: "18.9K", color: "#00f5ff", glow: "#00f5ff" },
+                    { label: "Orders", value: "3,284", color: "#39ff14", glow: "#39ff14" },
+                    { label: "Uptime", value: "99.9%", color: "#bf5fff", glow: "#bf5fff" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="rounded-2xl border bg-cyber-bg p-4 text-center" style={{ borderColor: stat.color + "40", boxShadow: `0 0 20px ${stat.glow}20` }}>
+                      <div className="text-xs uppercase tracking-wider text-white/40">{stat.label}</div>
+                      <div className="mt-2 text-2xl font-black" style={{ color: stat.color, textShadow: `0 0 10px ${stat.glow}` }}>{stat.value}</div>
+                      <div className="mt-2 h-0.5 w-full rounded-full" style={{ background: stat.color + "30" }}>
+                        <div className="h-0.5 w-3/4 rounded-full" style={{ background: stat.color, boxShadow: `0 0 6px ${stat.glow}` }} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+        </div>
+
+        {/* Neon Pricing Cards - Premium */}
+        <div className="mt-12">
+          <ProLock title="Neon Pricing Cards">
+            <CodePreview
+              title="Neon Pricing Cards"
+              description="Electric neon pricing cards with glowing borders, price tags, and feature lists."
+              dark={true}
+              code={`<div>Neon Pricing Premium</div>`}
+            >
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                {[
+                  { name: "STARTER", price: "Free", color: "#00f5ff", features: ["5 neon components", "Basic glow effects", "Community access"] },
+                  { name: "PRO", price: "₹69", color: "#ff2d78", features: ["All neon packs", "Advanced animations", "Priority support", "Figma kit"], popular: true },
+                  { name: "TEAM", price: "₹199", color: "#39ff14", features: ["Everything in Pro", "Team license", "Custom neon themes", "Dedicated support"] },
+                ].map((plan) => (
+                  <div key={plan.name} className="relative rounded-2xl border bg-cyber-bg p-6" style={{ borderColor: plan.color + "50", boxShadow: plan.popular ? `0 0 30px ${plan.color}30` : "none" }}>
+                    {plan.popular && <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-black text-white" style={{ background: plan.color, boxShadow: `0 0 10px ${plan.color}` }}>POPULAR</div>}
+                    <div className="text-xs font-black uppercase tracking-widest" style={{ color: plan.color }}>{plan.name}</div>
+                    <div className="mt-2 text-3xl font-black text-white" style={{ textShadow: `0 0 15px ${plan.color}` }}>{plan.price}</div>
+                    <ul className="mt-4 space-y-2">
+                      {plan.features.map((f) => (
+                        <li key={f} className="flex items-center gap-2 text-xs text-white/60">
+                          <span style={{ color: plan.color }}>&#9654;</span> {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <button className="mt-5 w-full rounded-lg border py-2.5 text-sm font-bold transition" style={{ borderColor: plan.color, color: plan.color }}>
+                      GET STARTED
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </CodePreview>
+          </ProLock>
         </div>
       </div>
     </div>

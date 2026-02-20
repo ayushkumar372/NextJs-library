@@ -1,4 +1,5 @@
 import CodePreview from "@/components/CodePreview";
+import ProLock from "@/components/ProLock";
 
 export default function GradientsShowcase() {
   return (
@@ -690,6 +691,104 @@ export default function GradientsShowcase() {
               <span className="inline-block rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-3 py-1 text-xs font-semibold text-white">Sky Cyan</span>
             </div>
           </CodePreview>
+        </section>
+        {/* 11. Gradient Hero Section - Premium */}
+        <section className="mt-12">
+          <ProLock title="Gradient Hero Section">
+            <CodePreview
+              title="Gradient Hero Section"
+              description="Bold full-page hero with animated mesh gradient, floating badge, headline, and dual CTAs."
+              dark={true}
+              code={`<div>Gradient Hero Premium</div>`}
+            >
+              <div className="relative overflow-hidden rounded-3xl bg-slate-950 p-16 text-center">
+                {/* Gradient orbs */}
+                <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-violet-600/30 blur-3xl" />
+                <div className="absolute -right-20 top-10 h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl" />
+                <div className="absolute bottom-0 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-pink-500/20 blur-3xl" />
+                <div className="relative">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-medium text-violet-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" /> New: Gradient 3.0 Released
+                  </div>
+                  <h1 className="mt-6 text-5xl font-black leading-tight">
+                    <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                      Design Without
+                    </span>
+                    <br />
+                    <span className="text-white">Limits</span>
+                  </h1>
+                  <p className="mx-auto mt-4 max-w-md text-sm text-slate-400">Premium gradient UI components for the next generation of web applications. Copy, paste, ship.</p>
+                  <div className="mt-8 flex items-center justify-center gap-4">
+                    <button className="rounded-full bg-gradient-to-r from-violet-600 to-cyan-500 px-8 py-3 text-sm font-bold text-white shadow-lg shadow-violet-500/30 transition hover:scale-105">Get Started Free</button>
+                    <button className="rounded-full border border-white/10 px-8 py-3 text-sm font-medium text-white/70 transition hover:border-white/30 hover:text-white">View Components →</button>
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+        </section>
+
+        {/* 12. Aurora Gradient Cards - Premium */}
+        <section className="mt-12">
+          <ProLock title="Aurora Gradient Cards">
+            <CodePreview
+              title="Aurora Gradient Cards"
+              description="Stunning aurora-effect cards with mesh gradient backgrounds and glassmorphism overlay."
+              dark={true}
+              code={`<div>Aurora Cards Premium</div>`}
+            >
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                {[
+                  { title: "Aurora Nord", subtitle: "Northern Lights", from: "from-emerald-400", via: "via-cyan-500", to: "to-blue-600", badge: "Cool" },
+                  { title: "Solar Flare", subtitle: "Cosmic Energy", from: "from-amber-400", via: "via-orange-500", to: "to-red-600", badge: "Warm" },
+                  { title: "Violet Dream", subtitle: "Deep Space", from: "from-violet-400", via: "via-purple-500", to: "to-pink-600", badge: "Mystic" },
+                ].map((card) => (
+                  <div key={card.title} className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${card.from} ${card.via} ${card.to} p-px`}>
+                    <div className="relative h-full rounded-3xl bg-slate-950/80 p-6 backdrop-blur-sm">
+                      <div className={`inline-block rounded-full bg-gradient-to-r ${card.from} ${card.to} px-3 py-1 text-xs font-bold text-white`}>{card.badge}</div>
+                      <div className={`mt-6 h-20 w-20 rounded-2xl bg-gradient-to-br ${card.from} ${card.to} opacity-80`} />
+                      <h3 className="mt-4 text-xl font-bold text-white">{card.title}</h3>
+                      <p className="mt-1 text-sm text-white/50">{card.subtitle}</p>
+                      <button className={`mt-4 w-full rounded-xl bg-gradient-to-r ${card.from} ${card.to} py-2 text-sm font-semibold text-white transition hover:opacity-90`}>Explore</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CodePreview>
+          </ProLock>
+        </section>
+
+        {/* 13. Gradient Pricing Table - Premium */}
+        <section className="mt-12 pb-16">
+          <ProLock title="Gradient Pricing Table">
+            <CodePreview
+              title="Gradient Pricing Table"
+              description="Premium pricing table with gradient borders, highlighted plan, and feature comparisons."
+              dark={true}
+              code={`<div>Gradient Pricing Premium</div>`}
+            >
+              <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl border border-slate-800 bg-slate-900">
+                <div className="bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 p-8 text-center">
+                  <div className="text-xs font-bold uppercase tracking-widest text-white/60">Most Popular</div>
+                  <div className="mt-2 text-5xl font-black text-white">₹69</div>
+                  <div className="text-sm text-white/60">Lifetime Access · One-time payment</div>
+                  <button className="mt-6 rounded-full bg-white px-10 py-3 text-sm font-black text-violet-600 shadow-xl transition hover:scale-105">
+                    ⚡ Get Lifetime Access
+                  </button>
+                </div>
+                <div className="p-8">
+                  <div className="grid grid-cols-2 gap-3">
+                    {["All Gradient Packs", "Mesh Gradient Kit", "Aurora Effects", "Animated Borders", "Gradient Text FX", "Color Picker Tool", "Figma Components", "Lifetime Updates"].map((f) => (
+                      <div key={f} className="flex items-center gap-2 text-sm text-slate-300">
+                        <div className="h-5 w-5 rounded-full bg-gradient-to-r from-violet-500 to-pink-500 flex items-center justify-center text-xs text-white">✓</div>
+                        {f}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
         </section>
       </div>
     </div>

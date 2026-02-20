@@ -1,4 +1,5 @@
 import CodePreview from "@/components/CodePreview";
+import ProLock from "@/components/ProLock";
 
 export default function ThreeDDepthShowcase() {
   return (
@@ -321,7 +322,7 @@ export default function ThreeDDepthShowcase() {
         </section>
 
         {/* 8. Depth Layers */}
-        <section className="mt-20 pb-16">
+        <section className="mt-20">
           <CodePreview
             title="Depth Layers"
             description="Overlapping panels at different z-levels creating a parallax-like depth effect"
@@ -362,6 +363,122 @@ export default function ThreeDDepthShowcase() {
               </div>
             </div>
           </CodePreview>
+        </section>
+
+        {/* 9. 3D Flip Cards — Premium */}
+        <section className="mt-20">
+          <ProLock title="3D Flip Cards">
+            <CodePreview
+              title="3D Flip Cards"
+              description="Cards that flip on hover to reveal a back face with different content using CSS 3D transforms."
+              dark={true}
+              code={`<div>3D Flip Cards Premium</div>`}
+            >
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-3" style={{ perspective: "1000px" }}>
+                {[
+                  { front: { bg: "from-violet-500 to-fuchsia-500", icon: "⚡", title: "Speed" }, back: { bg: "from-fuchsia-600 to-violet-600", text: "Lightning fast components optimized for production performance." } },
+                  { front: { bg: "from-cyan-500 to-blue-500", icon: "🎨", title: "Design" }, back: { bg: "from-blue-600 to-cyan-600", text: "Beautiful by default, customizable to match your brand identity." } },
+                  { front: { bg: "from-amber-500 to-orange-500", icon: "🔒", title: "Secure" }, back: { bg: "from-orange-600 to-amber-600", text: "Built with security best practices and accessibility in mind." } },
+                ].map((card) => (
+                  <div key={card.front.title} className="group h-48 cursor-pointer" style={{ perspective: "1000px" }}>
+                    <div className="relative h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                      {/* Front */}
+                      <div className={`absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-gradient-to-br ${card.front.bg} [backface-visibility:hidden]`}>
+                        <div className="text-4xl">{card.front.icon}</div>
+                        <div className="mt-3 text-xl font-bold text-white">{card.front.title}</div>
+                        <div className="mt-1 text-xs text-white/60">Hover to flip</div>
+                      </div>
+                      {/* Back */}
+                      <div className={`absolute inset-0 flex items-center justify-center rounded-2xl bg-gradient-to-br ${card.back.bg} p-6 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]`}>
+                        <p className="text-sm font-medium text-white">{card.back.text}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CodePreview>
+          </ProLock>
+        </section>
+
+        {/* 10. 3D Product Showcase — Premium */}
+        <section className="mt-20">
+          <ProLock title="3D Product Showcase">
+            <CodePreview
+              title="3D Product Showcase"
+              description="Floating product card with layered 3D depth effect, shadow stacking, and perspective tilt."
+              dark={true}
+              code={`<div>3D Product Showcase Premium</div>`}
+            >
+              <div className="flex items-center justify-center py-8" style={{ perspective: "800px" }}>
+                <div className="relative transition-all duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(-15deg)_rotateX(5deg)]">
+                  {/* Shadow layers for depth */}
+                  <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-3xl bg-violet-600/20 blur-lg" />
+                  <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-3xl bg-violet-600/30 blur-md" />
+                  {/* Main card */}
+                  <div className="relative w-72 overflow-hidden rounded-3xl border border-slate-700 bg-slate-900">
+                    <div className="h-48 bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-600 flex items-center justify-center text-6xl">
+                      🎧
+                    </div>
+                    <div className="p-5">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <div className="text-xs font-semibold uppercase tracking-wider text-violet-400">Premium</div>
+                          <h3 className="mt-1 text-lg font-bold text-white">AirPods Pro Max</h3>
+                        </div>
+                        <div className="text-xl font-black text-white">₹29,990</div>
+                      </div>
+                      <div className="mt-3 flex items-center gap-1 text-amber-400 text-sm">★★★★★ <span className="text-slate-400 text-xs ml-1">(2.4k)</span></div>
+                      <button className="mt-4 w-full rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 py-2.5 text-sm font-bold text-white transition hover:opacity-90">
+                        Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+        </section>
+
+        {/* 11. Depth Layered Dashboard — Premium */}
+        <section className="mt-20 pb-16">
+          <ProLock title="Depth Layered Dashboard">
+            <CodePreview
+              title="Depth Layered Dashboard"
+              description="Dashboard with stacked z-axis layers creating a realistic sense of 3D depth and elevation."
+              dark={true}
+              code={`<div>Depth Layered Dashboard Premium</div>`}
+            >
+              <div className="relative min-h-64 overflow-hidden rounded-3xl bg-slate-950 p-6">
+                {/* Background layer */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-950" />
+                {/* Mid layer cards */}
+                <div className="relative grid grid-cols-3 gap-4">
+                  {[
+                    { label: "Revenue", value: "₹4.2L", up: true, color: "violet" },
+                    { label: "Users", value: "18.9K", up: true, color: "cyan" },
+                    { label: "Churn", value: "2.1%", up: false, color: "rose" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="rounded-2xl border border-slate-800 bg-slate-900 p-4 shadow-xl shadow-black/50" style={{ transform: "translateZ(20px)" }}>
+                      <p className="text-xs text-slate-400">{stat.label}</p>
+                      <p className="mt-1 text-2xl font-black text-white">{stat.value}</p>
+                      <p className={`text-xs ${stat.up ? "text-emerald-400" : "text-rose-400"}`}>{stat.up ? "↑ 12%" : "↓ 0.3%"}</p>
+                    </div>
+                  ))}
+                </div>
+                {/* Foreground floating card */}
+                <div className="relative mt-4 rounded-2xl border border-violet-500/30 bg-gradient-to-r from-violet-900/50 to-indigo-900/50 p-4 shadow-2xl shadow-violet-500/20 backdrop-blur-sm" style={{ transform: "translateZ(40px)" }}>
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-500 flex items-center justify-center text-white font-bold">A</div>
+                    <div className="flex-1">
+                      <div className="text-sm font-semibold text-white">New order received</div>
+                      <div className="text-xs text-slate-400">₹12,400 · 2 min ago</div>
+                    </div>
+                    <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
         </section>
       </div>
     </div>
