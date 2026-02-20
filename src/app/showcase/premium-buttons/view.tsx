@@ -1,4 +1,5 @@
 import CodePreview from "@/components/CodePreview";
+import ProLock from "@/components/ProLock";
 
 export default function PremiumButtonsShowcase() {
   return (
@@ -436,6 +437,123 @@ export default function PremiumButtonsShowcase() {
               <button className="rounded-xl bg-[#0A66C2] px-6 py-3 font-semibold text-white transition hover:bg-[#004182]">LinkedIn</button>
             </div>
           </CodePreview>
+
+          {/* PREMIUM: Glassmorphic CTA Button Section */}
+          <ProLock title="Glassmorphic CTA Section">
+            <CodePreview
+              title="Glassmorphic CTA Section"
+              description="Full-width CTA panel with glassmorphic buttons, gradient backdrop, and animated badge."
+              dark={true}
+              code={`<div>Glassmorphic CTA Section Premium</div>`}
+            >
+              <div className="relative overflow-hidden rounded-3xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-600 via-purple-700 to-indigo-800" />
+                <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-pink-500/20 blur-3xl" />
+                <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-cyan-500/20 blur-3xl" />
+                <div className="relative px-10 py-14 text-center">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-sm">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400" /> Live — 2,400 users online
+                  </div>
+                  <h2 className="mt-5 text-4xl font-black text-white">Start Building Today</h2>
+                  <p className="mx-auto mt-3 max-w-md text-white/60">Premium components, zero overhead. Trusted by 50,000+ developers worldwide.</p>
+                  <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+                    <button className="rounded-2xl bg-white px-8 py-3.5 text-sm font-black text-violet-700 shadow-xl shadow-black/20 transition hover:scale-105 hover:shadow-2xl">
+                      Get Lifetime Access ⚡
+                    </button>
+                    <button className="rounded-2xl border border-white/30 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20">
+                      Browse Components →
+                    </button>
+                    <button className="rounded-2xl border border-white/20 px-8 py-3.5 text-sm font-medium text-white/70 transition hover:border-white/40 hover:text-white">
+                      View Demo
+                    </button>
+                  </div>
+                  <div className="mt-8 flex items-center justify-center gap-6 text-xs text-white/40">
+                    <span>✓ No subscription</span>
+                    <span>✓ Lifetime updates</span>
+                    <span>✓ MIT license</span>
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+
+          {/* PREMIUM: Magnetic Hover Button Group */}
+          <ProLock title="Magnetic Action Buttons">
+            <CodePreview
+              title="Magnetic Action Buttons"
+              description="Premium button group with magnetic hover effects, ripple animations, and state transitions."
+              dark={true}
+              code={`<div>Magnetic Action Buttons Premium</div>`}
+            >
+              <div className="space-y-8">
+                {/* Primary action group */}
+                <div className="flex flex-wrap items-center gap-4">
+                  {[
+                    { label: "Deploy Now", from: "from-violet-600", to: "to-indigo-600", shadow: "shadow-violet-500/30" },
+                    { label: "Push to Prod", from: "from-pink-600", to: "to-rose-600", shadow: "shadow-pink-500/30" },
+                    { label: "Ship It 🚀", from: "from-emerald-500", to: "to-teal-600", shadow: "shadow-emerald-500/30" },
+                    { label: "Go Live", from: "from-amber-500", to: "to-orange-600", shadow: "shadow-amber-500/30" },
+                  ].map((btn) => (
+                    <button key={btn.label} className={`group relative overflow-hidden rounded-2xl bg-gradient-to-r ${btn.from} ${btn.to} px-7 py-3.5 text-sm font-bold text-white shadow-lg ${btn.shadow} transition-all duration-300 hover:scale-105 hover:shadow-xl`}>
+                      <span className="relative z-10">{btn.label}</span>
+                      <div className="absolute inset-0 bg-white opacity-0 transition-opacity group-hover:opacity-10" />
+                    </button>
+                  ))}
+                </div>
+                {/* Outline group */}
+                <div className="flex flex-wrap items-center gap-4">
+                  {[
+                    { label: "Fork Repo", color: "violet" },
+                    { label: "Star ★ 12K", color: "amber" },
+                    { label: "Sponsor ♥", color: "pink" },
+                    { label: "Docs ↗", color: "cyan" },
+                  ].map((btn) => (
+                    <div key={btn.label} className={`rounded-2xl bg-gradient-to-r from-${btn.color}-500 to-${btn.color}-600 p-[2px] transition hover:shadow-lg hover:shadow-${btn.color}-500/20`}>
+                      <button className={`rounded-[14px] bg-slate-950 px-7 py-3 text-sm font-bold text-${btn.color}-400 transition hover:bg-slate-900`}>
+                        {btn.label}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+
+          {/* PREMIUM: Payment Flow Button States */}
+          <ProLock title="Payment Flow Button States">
+            <CodePreview
+              title="Payment Flow Button States"
+              description="Complete payment button with idle, processing, success, and error states with animations."
+              dark={true}
+              code={`<div>Payment Flow Buttons Premium</div>`}
+            >
+              <div className="space-y-4">
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">All button states</p>
+                <div className="flex flex-wrap items-center gap-4">
+                  {/* Idle */}
+                  <button className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-500/25 transition hover:opacity-90">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                    Pay ₹69 Now
+                  </button>
+                  {/* Processing */}
+                  <button className="flex cursor-not-allowed items-center gap-2 rounded-2xl bg-slate-700 px-8 py-3.5 text-sm font-bold text-slate-300" disabled>
+                    <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" /></svg>
+                    Processing…
+                  </button>
+                  {/* Success */}
+                  <button className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-500/25">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+                    Payment Successful!
+                  </button>
+                  {/* Error */}
+                  <button className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 to-red-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-rose-500/25">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" /></svg>
+                    Payment Failed
+                  </button>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
         </div>
       </div>
     </div>

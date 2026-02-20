@@ -1,4 +1,5 @@
 import CodePreview from "@/components/CodePreview";
+import ProLock from "@/components/ProLock";
 
 const darkElegantFormCode = `<div className="rounded-2xl border border-slate-800 bg-slate-900 p-8">
   <h3 className="text-xl font-bold text-white">Create Account</h3>
@@ -520,6 +521,169 @@ export default function PremiumFormsShowcase() {
               </div>
             </div>
           </CodePreview>
+
+          {/* PREMIUM: Multi-Step Checkout Form */}
+          <ProLock title="Multi-Step Checkout Form">
+            <CodePreview
+              title="Multi-Step Checkout Form"
+              description="3-step checkout flow with progress stepper, shipping details, payment, and order summary."
+              dark={true}
+              code={`<div>Multi-Step Checkout Premium</div>`}
+            >
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+                {/* Form */}
+                <div className="lg:col-span-3 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900">
+                  {/* Progress */}
+                  <div className="flex border-b border-slate-800">
+                    {["Shipping", "Payment", "Review"].map((step, i) => (
+                      <div key={step} className={`flex-1 py-4 text-center text-xs font-semibold transition ${i === 0 ? "border-b-2 border-violet-500 text-violet-400" : "text-slate-500"}`}>
+                        <span className={`mr-1.5 inline-flex h-5 w-5 items-center justify-center rounded-full text-xs ${i === 0 ? "bg-violet-500 text-white" : "bg-slate-700 text-slate-400"}`}>{i + 1}</span>
+                        {step}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="p-6 space-y-4">
+                    <h3 className="font-bold text-white">Shipping Details</h3>
+                    <div className="grid grid-cols-2 gap-3">
+                      <input placeholder="First name" className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-violet-500" />
+                      <input placeholder="Last name" className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-violet-500" />
+                    </div>
+                    <input placeholder="Street address" className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-violet-500" />
+                    <div className="grid grid-cols-3 gap-3">
+                      <input placeholder="City" className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-violet-500" />
+                      <input placeholder="State" className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-violet-500" />
+                      <input placeholder="PIN" className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-violet-500" />
+                    </div>
+                    <button className="w-full rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition hover:opacity-90">
+                      Continue to Payment →
+                    </button>
+                  </div>
+                </div>
+                {/* Order summary */}
+                <div className="lg:col-span-2 rounded-3xl border border-slate-800 bg-slate-900 p-6">
+                  <h3 className="font-bold text-white">Order Summary</h3>
+                  <div className="mt-4 space-y-3">
+                    {[
+                      { name: "ReactUI Pro License", price: "₹69" },
+                      { name: "Figma Kit Add-on", price: "₹29" },
+                    ].map((item) => (
+                      <div key={item.name} className="flex items-center justify-between text-sm">
+                        <span className="text-slate-400">{item.name}</span>
+                        <span className="font-semibold text-white">{item.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 border-t border-slate-800 pt-4">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-slate-400">Subtotal</span>
+                      <span className="text-white">₹98</span>
+                    </div>
+                    <div className="mt-1 flex justify-between text-sm">
+                      <span className="text-slate-400">GST (18%)</span>
+                      <span className="text-white">₹17.64</span>
+                    </div>
+                    <div className="mt-3 flex justify-between font-black">
+                      <span className="text-white">Total</span>
+                      <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent text-lg">₹115.64</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 flex items-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-xs text-emerald-400">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                    Secured by Razorpay
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+
+          {/* PREMIUM: AI Prompt Builder Form */}
+          <ProLock title="AI Prompt Builder Form">
+            <CodePreview
+              title="AI Prompt Builder Form"
+              description="Advanced AI tool prompt input with tag chips, model selector, and generation controls."
+              dark={true}
+              code={`<div>AI Prompt Builder Premium</div>`}
+            >
+              <div className="overflow-hidden rounded-3xl border border-slate-800 bg-slate-900">
+                <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4">
+                  <div className="flex items-center gap-2">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-indigo-500 text-xs font-black text-white">AI</div>
+                    <span className="font-bold text-white">Prompt Builder</span>
+                  </div>
+                  <div className="flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs font-semibold text-violet-300">
+                    GPT-4o
+                  </div>
+                </div>
+                <div className="p-6 space-y-4">
+                  {/* Tag chips */}
+                  <div className="flex flex-wrap gap-2">
+                    {["Creative", "Professional", "Concise", "Detailed", "Technical"].map((tag, i) => (
+                      <button key={tag} className={`rounded-full px-3 py-1 text-xs font-semibold transition ${i < 2 ? "bg-violet-500/20 text-violet-300 border border-violet-500/40" : "border border-slate-700 bg-slate-800 text-slate-400 hover:border-slate-600 hover:text-slate-300"}`}>
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                  {/* Prompt textarea */}
+                  <textarea
+                    rows={4}
+                    placeholder="Describe what you want to generate... e.g. 'Write a compelling product description for a premium React UI library targeting senior developers'"
+                    className="w-full rounded-2xl border border-slate-700 bg-slate-800 px-4 py-4 text-sm text-white placeholder-slate-500 outline-none transition focus:border-violet-500 resize-none"
+                    defaultValue="Write a compelling landing page hero section copy for a React UI component library with premium animations and glassmorphic designs."
+                  />
+                  {/* Controls */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800 px-3 py-2 text-xs text-slate-300">
+                      <span className="text-slate-500">Temp:</span>
+                      <span className="font-semibold text-violet-400">0.7</span>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800 px-3 py-2 text-xs text-slate-300">
+                      <span className="text-slate-500">Tokens:</span>
+                      <span className="font-semibold text-violet-400">2048</span>
+                    </div>
+                    <button className="ml-auto flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition hover:opacity-90">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                      Generate
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+
+          {/* PREMIUM: Pro Plan Upgrade Form */}
+          <ProLock title="Pro Plan Upgrade Form">
+            <CodePreview
+              title="Pro Plan Upgrade Form"
+              description="Subscription upgrade form with plan toggle, feature comparison, and payment input."
+              dark={true}
+              code={`<div>Pro Plan Upgrade Form Premium</div>`}
+            >
+              <div className="mx-auto max-w-md overflow-hidden rounded-3xl border border-slate-800 bg-slate-900">
+                <div className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 p-8 text-center">
+                  <div className="inline-flex items-center gap-1 rounded-full bg-white/20 px-3 py-1 text-xs font-black text-white">⚡ LIFETIME DEAL</div>
+                  <div className="mt-3 text-5xl font-black text-white">₹69</div>
+                  <div className="text-sm text-white/60">One-time · Forever yours</div>
+                </div>
+                <div className="p-6 space-y-4">
+                  <div className="space-y-2">
+                    {["All 200+ premium components", "Figma design kit", "Lifetime free updates", "Private Discord community", "Commercial license"].map((feat) => (
+                      <div key={feat} className="flex items-center gap-2 text-sm text-slate-300">
+                        <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-indigo-500 text-xs text-white">✓</div>
+                        {feat}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="space-y-3 pt-2">
+                    <input placeholder="Email address" className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition focus:border-violet-500" />
+                    <button className="w-full rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 py-3.5 text-sm font-black text-white shadow-xl shadow-violet-500/30 transition hover:scale-[1.02] hover:shadow-2xl">
+                      Get Lifetime Access →
+                    </button>
+                    <p className="text-center text-xs text-slate-500">Secured by Razorpay · No subscription ever</p>
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
         </div>
       </div>
     </div>

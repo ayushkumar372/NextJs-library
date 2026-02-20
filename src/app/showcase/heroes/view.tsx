@@ -1,4 +1,5 @@
 import CodePreview from "@/components/CodePreview";
+import ProLock from "@/components/ProLock";
 
 export default function HeroesShowcase() {
   return (
@@ -493,6 +494,188 @@ export default function HeroesShowcase() {
               </div>
             </div>
           </CodePreview>
+        </section>
+
+        {/* PREMIUM: SaaS Dashboard Hero */}
+        <section className="mt-16">
+          <ProLock title="SaaS Dashboard Hero">
+            <CodePreview
+              title="SaaS Dashboard Hero"
+              description="Premium SaaS hero with product dashboard preview, gradient badge, and social proof."
+              dark={true}
+              code={`<div>SaaS Dashboard Hero Premium</div>`}
+            >
+              <div className="relative overflow-hidden rounded-3xl bg-slate-950 px-8 py-16">
+                {/* Orbs */}
+                <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-violet-600/20 blur-3xl" />
+                <div className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
+                <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+                  {/* Left: Copy */}
+                  <div>
+                    <div className="inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-semibold text-violet-300">
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-violet-400" />
+                      Trusted by 50,000+ teams
+                    </div>
+                    <h1 className="mt-5 text-4xl font-black leading-tight text-white sm:text-5xl">
+                      Build Products<br />
+                      <span className="bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">10x Faster</span>
+                    </h1>
+                    <p className="mt-4 text-slate-400">The most complete React UI library. Ship production-ready interfaces in minutes, not months.</p>
+                    <div className="mt-8 flex flex-wrap gap-4">
+                      <button className="rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-3.5 text-sm font-black text-white shadow-xl shadow-violet-500/30 transition hover:scale-105">Start Free →</button>
+                      <button className="rounded-2xl border border-slate-700 px-8 py-3.5 text-sm font-semibold text-slate-300 transition hover:border-slate-600 hover:text-white">View Demo ▶</button>
+                    </div>
+                    <div className="mt-6 flex items-center gap-6 text-xs text-slate-500">
+                      <span>✓ No credit card</span>
+                      <span>✓ Free forever plan</span>
+                      <span>✓ 5 min setup</span>
+                    </div>
+                  </div>
+                  {/* Right: Dashboard preview */}
+                  <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 p-4 shadow-2xl shadow-black">
+                    <div className="flex items-center gap-1.5 mb-3">
+                      <div className="h-3 w-3 rounded-full bg-rose-500" />
+                      <div className="h-3 w-3 rounded-full bg-amber-500" />
+                      <div className="h-3 w-3 rounded-full bg-emerald-500" />
+                    </div>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[["₹4.2L", "Revenue", "text-violet-400"], ["18.9K", "Users", "text-cyan-400"], ["99.9%", "Uptime", "text-emerald-400"]].map(([val, lbl, cls]) => (
+                        <div key={lbl} className="rounded-xl bg-slate-800 p-3 text-center">
+                          <div className={`text-lg font-black ${cls}`}>{val}</div>
+                          <div className="text-xs text-slate-500">{lbl}</div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-2 flex h-20 items-end gap-1">
+                      {[30, 60, 45, 80, 65, 90, 75, 100, 85, 95].map((h, i) => (
+                        <div key={i} className="flex-1 rounded-t bg-gradient-to-t from-violet-600/60 to-violet-400/60" style={{ height: `${h}%` }} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+        </section>
+
+        {/* PREMIUM: Agency Portfolio Hero */}
+        <section className="mt-16">
+          <ProLock title="Agency Portfolio Hero">
+            <CodePreview
+              title="Agency Portfolio Hero"
+              description="Bold agency-style hero with giant typography, work grid thumbnails, and client logos."
+              dark={true}
+              code={`<div>Agency Portfolio Hero Premium</div>`}
+            >
+              <div className="relative overflow-hidden rounded-3xl bg-slate-950 p-10">
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
+                  {/* Left */}
+                  <div>
+                    <div className="text-xs font-black uppercase tracking-[0.4em] text-violet-400">Digital Agency</div>
+                    <h1 className="mt-3 text-5xl font-black leading-none text-white sm:text-6xl">
+                      We Craft<br />
+                      <span className="italic text-slate-400">Digital</span><br />
+                      Experiences.
+                    </h1>
+                    <div className="mt-8 flex items-center gap-6">
+                      <button className="rounded-full bg-white px-8 py-3.5 text-sm font-black text-slate-900 shadow-xl transition hover:scale-105">
+                        Our Work ↗
+                      </button>
+                      <div className="flex -space-x-2">
+                        {["AK", "SR", "DM", "PK"].map((av, i) => (
+                          <div key={av} className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-950 bg-gradient-to-br from-violet-500 to-indigo-500 text-xs font-bold text-white" style={{ zIndex: 4 - i }}>
+                            {av}
+                          </div>
+                        ))}
+                        <span className="ml-3 self-center text-xs text-slate-400">+240 happy clients</span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Right: Work grid */}
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { label: "Brand Identity", color: "from-violet-500 to-purple-600" },
+                      { label: "Web Design", color: "from-cyan-500 to-blue-600" },
+                      { label: "Motion Design", color: "from-pink-500 to-rose-600" },
+                      { label: "UI Systems", color: "from-amber-500 to-orange-600" },
+                    ].map((work) => (
+                      <div key={work.label} className={`group relative h-28 overflow-hidden rounded-2xl bg-gradient-to-br ${work.color} cursor-pointer transition hover:scale-[1.02]`}>
+                        <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/10" />
+                        <div className="absolute bottom-3 left-3 text-xs font-bold text-white">{work.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
+        </section>
+
+        {/* PREMIUM: App Download Hero */}
+        <section className="mt-16 pb-16">
+          <ProLock title="App Download Hero">
+            <CodePreview
+              title="App Download Hero"
+              description="Mobile app hero with phone mockup, rating stars, app store badges, and feature highlights."
+              dark={true}
+              code={`<div>App Download Hero Premium</div>`}
+            >
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-violet-950 to-slate-950 px-8 py-14">
+                <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
+                  {/* Left: Copy */}
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      {"★★★★★".split("").map((s, i) => <span key={i} className="text-amber-400 text-lg">{s}</span>)}
+                      <span className="ml-2 text-sm font-semibold text-white">4.9</span>
+                      <span className="text-xs text-slate-400">(12,400 ratings)</span>
+                    </div>
+                    <h1 className="mt-4 text-4xl font-black text-white leading-tight">
+                      The #1 App for<br />
+                      <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
+                        Modern Teams
+                      </span>
+                    </h1>
+                    <p className="mt-4 text-slate-400">Collaborate, ship, and track everything in one beautiful app. Used by teams at Apple, Google, and Stripe.</p>
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <button className="flex items-center gap-2 rounded-2xl bg-black px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-900 border border-slate-700">
+                        <span className="text-xl"></span>
+                        <div className="text-left"><div className="text-xs text-slate-400 leading-none">Download on the</div><div className="font-black leading-tight">App Store</div></div>
+                      </button>
+                      <button className="flex items-center gap-2 rounded-2xl bg-black px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-900 border border-slate-700">
+                        <span className="text-xl">▶</span>
+                        <div className="text-left"><div className="text-xs text-slate-400 leading-none">GET IT ON</div><div className="font-black leading-tight">Google Play</div></div>
+                      </button>
+                    </div>
+                  </div>
+                  {/* Right: Phone mockup */}
+                  <div className="flex justify-center">
+                    <div className="relative w-48 overflow-hidden rounded-[2.5rem] border-4 border-slate-700 bg-slate-900 shadow-2xl shadow-violet-500/20">
+                      <div className="h-4 bg-slate-800 rounded-t-[2rem] flex items-center justify-center">
+                        <div className="h-1.5 w-12 rounded-full bg-slate-700" />
+                      </div>
+                      <div className="p-3 space-y-2">
+                        <div className="rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 p-3">
+                          <div className="text-xs font-black text-white">Dashboard</div>
+                          <div className="mt-2 text-xl font-black text-white">₹4.2L</div>
+                          <div className="mt-1 h-6 flex items-end gap-0.5">
+                            {[40, 70, 50, 90, 65, 80, 100].map((h, i) => (
+                              <div key={i} className="flex-1 rounded-t bg-white/30" style={{ height: `${h}%` }} />
+                            ))}
+                          </div>
+                        </div>
+                        {[["Tasks", "24 pending"], ["Team", "8 online"]].map(([t, s]) => (
+                          <div key={t} className="rounded-xl bg-slate-800 px-3 py-2 flex items-center justify-between">
+                            <span className="text-xs font-semibold text-white">{t}</span>
+                            <span className="text-xs text-violet-400">{s}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CodePreview>
+          </ProLock>
         </section>
       </div>
     </div>
