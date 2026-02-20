@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import View from "./view";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Gradient UI Components | ReactUI Library",
-  description:
-    "Mesh gradients, animated borders, gradient text, aurora effects, and color transition UI patterns.",
+const title = "Gradient UI Components | ReactUI Library";
+const description = "Mesh gradients, animated borders, gradient text, aurora effects, and color transition UI patterns.";
+const path = "/showcase/gradients";
+
+export const metadata: Metadata = buildPageMetadata({
+  path,
+  title,
+  description,
   keywords: [
     "gradient ui",
     "mesh gradients",
@@ -12,21 +17,26 @@ export const metadata: Metadata = {
     "animated gradients",
     "react gradient components"
   ],
-  openGraph: {
-    title: "Gradient UI Components | ReactUI Library",
-    description:
-      "Mesh gradients, animated borders, gradient text, aurora effects, and color transition UI patterns.",
-    url: "https://yoursite.com/showcase/gradients",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Gradient UI Components | ReactUI Library",
-    description:
-      "Mesh gradients, animated borders, gradient text, aurora effects, and color transition UI patterns.",
-  },
-};
+});
 
 export default function GradientsShowcase() {
-  return <View />;
+  const jsonLd = buildWebPageJsonLd({
+    path,
+    title,
+    description,
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "Showcase", path: "/showcase" },
+    { name: "Gradients", path: "/showcase/gradients" },
+  ],  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <View />
+    </>
+  );
 }

@@ -1,4 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
+
+const title = "About ReactUI Library";
+const description =
+  "Learn about the mission, team, technology, and principles behind ReactUI Library and how we build developer-first UI systems.";
+
+export const metadata: Metadata = buildPageMetadata({
+  path: "/about",
+  title,
+  description,
+  keywords: [
+    "about reactui",
+    "react component library team",
+    "design system mission",
+    "frontend ui toolkit",
+    "open source ui components",
+  ],
+});
 
 const team = [
   {
@@ -103,8 +122,23 @@ const principles = [
 ];
 
 export default function AboutPage() {
+  const jsonLd = buildWebPageJsonLd({
+    path: "/about",
+    title,
+    description,
+    breadcrumbs: [
+      { name: "Home", path: "/" },
+      { name: "About", path: "/about" },
+    ],
+  });
+
   return (
-    <div className="min-h-screen">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen">
       {/* ===== HERO SECTION ===== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-indigo-950 via-purple-950 to-slate-950 px-4 py-28 sm:px-6 lg:px-8">
         {/* decorative blobs */}
@@ -436,6 +470,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

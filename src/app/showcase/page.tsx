@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import View from "./view";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Design Showcase | ReactUI Library",
-  description:
-    "Explore premium UI design themes including glassmorphism, gaming, neon, gradients, 3D, forms, cards, buttons, and more.",
+const title = "Design Showcase | ReactUI Library";
+const description = "Explore premium UI design themes including glassmorphism, gaming, neon, gradients, 3D, forms, cards, buttons, and more.";
+const path = "/showcase";
+
+export const metadata: Metadata = buildPageMetadata({
+  path,
+  title,
+  description,
   keywords: [
     "design showcase",
     "react ui library",
@@ -12,21 +17,25 @@ export const metadata: Metadata = {
     "tailwind components",
     "premium ui"
   ],
-  openGraph: {
-    title: "Design Showcase | ReactUI Library",
-    description:
-      "Explore premium UI design themes including glassmorphism, gaming, neon, gradients, 3D, forms, cards, buttons, and more.",
-    url: "https://yoursite.com/showcase",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Design Showcase | ReactUI Library",
-    description:
-      "Explore premium UI design themes including glassmorphism, gaming, neon, gradients, 3D, forms, cards, buttons, and more.",
-  },
-};
+});
 
 export default function ShowcasePage() {
-  return <View />;
+  const jsonLd = buildWebPageJsonLd({
+    path,
+    title,
+    description,
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "Showcase", path: "/showcase" },
+  ],  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <View />
+    </>
+  );
 }

@@ -1,4 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
+
+const title = "Pricing - Lifetime Access for ReactUI Library";
+const description =
+  "Get lifetime access to ReactUI Library with all components, showcase packs, and future updates in one transparent plan.";
+
+export const metadata: Metadata = buildPageMetadata({
+  path: "/pricing",
+  title,
+  description,
+  keywords: [
+    "react ui pricing",
+    "component library pricing",
+    "lifetime ui components",
+    "reactui pro plan",
+    "ui kit license",
+  ],
+});
 
 const features = [
   "All 50+ components",
@@ -44,9 +63,24 @@ const faqs = [
 ];
 
 export default function PricingPage() {
+  const jsonLd = buildWebPageJsonLd({
+    path: "/pricing",
+    title,
+    description,
+    breadcrumbs: [
+      { name: "Home", path: "/" },
+      { name: "Pricing", path: "/pricing" },
+    ],
+  });
+
   return (
-    <div className="min-h-screen bg-slate-950">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen bg-slate-950">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
           <div className="mb-4 inline-block rounded-full border border-violet-500/20 bg-violet-500/10 px-4 py-1.5 text-sm font-medium text-violet-400">
@@ -298,7 +332,8 @@ export default function PricingPage() {
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

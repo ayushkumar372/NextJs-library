@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import View from "./view";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Premium Button UI Components | ReactUI Library",
-  description:
-    "A curated collection of premium button styles including gradient, neon, glass, and animated variants.",
+const title = "Premium Button UI Components | ReactUI Library";
+const description = "A curated collection of premium button styles including gradient, neon, glass, and animated variants.";
+const path = "/showcase/premium-buttons";
+
+export const metadata: Metadata = buildPageMetadata({
+  path,
+  title,
+  description,
   keywords: [
     "button components",
     "premium buttons",
@@ -12,21 +17,26 @@ export const metadata: Metadata = {
     "animated buttons",
     "react button ui"
   ],
-  openGraph: {
-    title: "Premium Button UI Components | ReactUI Library",
-    description:
-      "A curated collection of premium button styles including gradient, neon, glass, and animated variants.",
-    url: "https://yoursite.com/showcase/premium-buttons",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Premium Button UI Components | ReactUI Library",
-    description:
-      "A curated collection of premium button styles including gradient, neon, glass, and animated variants.",
-  },
-};
+});
 
 export default function PremiumButtonsShowcase() {
-  return <View />;
+  const jsonLd = buildWebPageJsonLd({
+    path,
+    title,
+    description,
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "Showcase", path: "/showcase" },
+    { name: "Premium Buttons", path: "/showcase/premium-buttons" },
+  ],  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <View />
+    </>
+  );
 }

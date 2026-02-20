@@ -431,7 +431,7 @@ export default function PremiumFormsShowcase() {
           >
             <div className="rounded-2xl border border-slate-800 bg-slate-900 p-8">
               <h3 className="text-xl font-bold text-white">Get in Touch</h3>
-              <p className="mt-1 text-sm text-slate-500">We'd love to hear from you.</p>
+              <p className="mt-1 text-sm text-slate-500">We&apos;d love to hear from you.</p>
               <form className="mt-6 space-y-5">
                 <div className="relative">
                   <input type="email" placeholder=" " className="peer w-full rounded-xl border border-slate-700 bg-slate-800 px-4 pb-2 pt-6 text-sm text-white outline-none transition focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20" />

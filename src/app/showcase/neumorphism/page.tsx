@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import View from "./view";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Neumorphism UI Components | ReactUI Library",
-  description:
-    "Soft UI surfaces, embossed elements, clay-like controls, and neumorphic depth patterns.",
+const title = "Neumorphism UI Components | ReactUI Library";
+const description = "Soft UI surfaces, embossed elements, clay-like controls, and neumorphic depth patterns.";
+const path = "/showcase/neumorphism";
+
+export const metadata: Metadata = buildPageMetadata({
+  path,
+  title,
+  description,
   keywords: [
     "neumorphism ui",
     "soft ui",
@@ -12,21 +17,26 @@ export const metadata: Metadata = {
     "clay ui",
     "neumorphic components"
   ],
-  openGraph: {
-    title: "Neumorphism UI Components | ReactUI Library",
-    description:
-      "Soft UI surfaces, embossed elements, clay-like controls, and neumorphic depth patterns.",
-    url: "https://yoursite.com/showcase/neumorphism",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Neumorphism UI Components | ReactUI Library",
-    description:
-      "Soft UI surfaces, embossed elements, clay-like controls, and neumorphic depth patterns.",
-  },
-};
+});
 
 export default function NeumorphismShowcase() {
-  return <View />;
+  const jsonLd = buildWebPageJsonLd({
+    path,
+    title,
+    description,
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "Showcase", path: "/showcase" },
+    { name: "Neumorphism", path: "/showcase/neumorphism" },
+  ],  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <View />
+    </>
+  );
 }

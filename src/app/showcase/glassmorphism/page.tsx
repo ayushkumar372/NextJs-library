@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import View from "./view";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Glassmorphism UI Components | ReactUI Library",
-  description:
-    "Frosted glass effects, blur backgrounds, transparent overlays, and modern glassmorphism UI patterns.",
+const title = "Glassmorphism UI Components | ReactUI Library";
+const description = "Frosted glass effects, blur backgrounds, transparent overlays, and modern glassmorphism UI patterns.";
+const path = "/showcase/glassmorphism";
+
+export const metadata: Metadata = buildPageMetadata({
+  path,
+  title,
+  description,
   keywords: [
     "glassmorphism ui",
     "frosted glass",
@@ -12,21 +17,26 @@ export const metadata: Metadata = {
     "transparent cards",
     "react glass ui"
   ],
-  openGraph: {
-    title: "Glassmorphism UI Components | ReactUI Library",
-    description:
-      "Frosted glass effects, blur backgrounds, transparent overlays, and modern glassmorphism UI patterns.",
-    url: "https://yoursite.com/showcase/glassmorphism",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Glassmorphism UI Components | ReactUI Library",
-    description:
-      "Frosted glass effects, blur backgrounds, transparent overlays, and modern glassmorphism UI patterns.",
-  },
-};
+});
 
 export default function GlassmorphismShowcase() {
-  return <View />;
+  const jsonLd = buildWebPageJsonLd({
+    path,
+    title,
+    description,
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "Showcase", path: "/showcase" },
+    { name: "Glassmorphism", path: "/showcase/glassmorphism" },
+  ],  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <View />
+    </>
+  );
 }

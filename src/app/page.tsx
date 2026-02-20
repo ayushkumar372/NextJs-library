@@ -1,4 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
+
+const title = "ReactUI Library - Premium React Components and Design Showcases";
+const description =
+  "Build stunning interfaces faster with ReactUI Library. Get production-ready React components, premium design showcases, and developer-first documentation.";
+
+export const metadata: Metadata = buildPageMetadata({
+  path: "/",
+  title,
+  description,
+  keywords: [
+    "react component library",
+    "ui components",
+    "tailwind components",
+    "nextjs ui kit",
+    "frontend design system",
+  ],
+});
 
 const features = [
   {
@@ -145,8 +164,19 @@ const faqs = [
 ];
 
 export default function Home() {
+  const jsonLd = buildWebPageJsonLd({
+    path: "/",
+    title,
+    description,
+    breadcrumbs: [{ name: "Home", path: "/" }],
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />

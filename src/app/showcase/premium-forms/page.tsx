@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import View from "./view";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Premium Form UI Components | ReactUI Library",
-  description:
-    "Premium form layouts including floating labels, multi-step flows, dark forms, and animated inputs.",
+const title = "Premium Form UI Components | ReactUI Library";
+const description = "Premium form layouts including floating labels, multi-step flows, dark forms, and animated inputs.";
+const path = "/showcase/premium-forms";
+
+export const metadata: Metadata = buildPageMetadata({
+  path,
+  title,
+  description,
   keywords: [
     "form components",
     "premium forms",
@@ -12,21 +17,26 @@ export const metadata: Metadata = {
     "floating labels",
     "react form ui"
   ],
-  openGraph: {
-    title: "Premium Form UI Components | ReactUI Library",
-    description:
-      "Premium form layouts including floating labels, multi-step flows, dark forms, and animated inputs.",
-    url: "https://yoursite.com/showcase/premium-forms",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Premium Form UI Components | ReactUI Library",
-    description:
-      "Premium form layouts including floating labels, multi-step flows, dark forms, and animated inputs.",
-  },
-};
+});
 
 export default function PremiumFormsShowcase() {
-  return <View />;
+  const jsonLd = buildWebPageJsonLd({
+    path,
+    title,
+    description,
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "Showcase", path: "/showcase" },
+    { name: "Premium Forms", path: "/showcase/premium-forms" },
+  ],  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <View />
+    </>
+  );
 }

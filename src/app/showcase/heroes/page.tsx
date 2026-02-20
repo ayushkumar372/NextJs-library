@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import View from "./view";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Hero Section UI Components | ReactUI Library",
-  description:
-    "Landing page hero designs with gradients, split layouts, visual effects, and high-conversion call-to-actions.",
+const title = "Hero Section UI Components | ReactUI Library";
+const description = "Landing page hero designs with gradients, split layouts, visual effects, and high-conversion call-to-actions.";
+const path = "/showcase/heroes";
+
+export const metadata: Metadata = buildPageMetadata({
+  path,
+  title,
+  description,
   keywords: [
     "hero section ui",
     "landing page hero",
@@ -12,21 +17,26 @@ export const metadata: Metadata = {
     "react hero components",
     "marketing ui"
   ],
-  openGraph: {
-    title: "Hero Section UI Components | ReactUI Library",
-    description:
-      "Landing page hero designs with gradients, split layouts, visual effects, and high-conversion call-to-actions.",
-    url: "https://yoursite.com/showcase/heroes",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Hero Section UI Components | ReactUI Library",
-    description:
-      "Landing page hero designs with gradients, split layouts, visual effects, and high-conversion call-to-actions.",
-  },
-};
+});
 
 export default function HeroesShowcase() {
-  return <View />;
+  const jsonLd = buildWebPageJsonLd({
+    path,
+    title,
+    description,
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "Showcase", path: "/showcase" },
+    { name: "Hero Sections", path: "/showcase/heroes" },
+  ],  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <View />
+    </>
+  );
 }

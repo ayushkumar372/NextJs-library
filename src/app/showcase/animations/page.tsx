@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import View from "./view";
+import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Animations and Motion UI Components | ReactUI Library",
-  description:
-    "Micro-interactions, loading states, hover effects, and kinetic motion patterns for modern interfaces.",
+const title = "Animations and Motion UI Components | ReactUI Library";
+const description = "Micro-interactions, loading states, hover effects, and kinetic motion patterns for modern interfaces.";
+const path = "/showcase/animations";
+
+export const metadata: Metadata = buildPageMetadata({
+  path,
+  title,
+  description,
   keywords: [
     "ui animations",
     "motion ui",
@@ -12,21 +17,26 @@ export const metadata: Metadata = {
     "loading states",
     "react animation components"
   ],
-  openGraph: {
-    title: "Animations and Motion UI Components | ReactUI Library",
-    description:
-      "Micro-interactions, loading states, hover effects, and kinetic motion patterns for modern interfaces.",
-    url: "https://yoursite.com/showcase/animations",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Animations and Motion UI Components | ReactUI Library",
-    description:
-      "Micro-interactions, loading states, hover effects, and kinetic motion patterns for modern interfaces.",
-  },
-};
+});
 
 export default function AnimationsShowcase() {
-  return <View />;
+  const jsonLd = buildWebPageJsonLd({
+    path,
+    title,
+    description,
+  breadcrumbs: [
+    { name: "Home", path: "/" },
+    { name: "Showcase", path: "/showcase" },
+    { name: "Animations and Motion", path: "/showcase/animations" },
+  ],  });
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <View />
+    </>
+  );
 }
