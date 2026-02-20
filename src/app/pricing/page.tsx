@@ -143,9 +143,14 @@ export default function PricingPage() {
                 ))}
               </ul>
 
-              <button className="mt-10 w-full rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-600 py-4 text-lg font-bold text-white shadow-lg shadow-violet-500/25 transition hover:shadow-xl hover:shadow-violet-500/40">
+              <a
+                href="https://rzp.io/rzp/XfnL9M7F"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 block w-full rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-600 py-4 text-center text-lg font-bold text-white shadow-lg shadow-violet-500/25 transition hover:shadow-xl hover:shadow-violet-500/40"
+              >
                 Get Lifetime Access — ₹69
-              </button>
+              </a>
 
               <p className="mt-4 text-center text-xs text-slate-500">
                 7-day money-back guarantee. No questions asked.
@@ -320,9 +325,14 @@ export default function PricingPage() {
               designs for just ₹69. Start building today.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <button className="w-full rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-600 px-10 py-3.5 text-lg font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:shadow-xl hover:shadow-violet-500/40 sm:w-auto">
+              <a
+                href="https://rzp.io/rzp/XfnL9M7F"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-600 px-10 py-3.5 text-center text-lg font-semibold text-white shadow-lg shadow-violet-500/25 transition hover:shadow-xl hover:shadow-violet-500/40 sm:w-auto"
+              >
                 Get Lifetime Access — ₹69
-              </button>
+              </a>
               <Link
                 href="/showcase"
                 className="w-full rounded-xl border border-slate-700 px-10 py-3.5 text-lg font-semibold text-slate-300 transition hover:bg-slate-800 sm:w-auto"
