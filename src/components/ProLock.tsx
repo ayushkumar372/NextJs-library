@@ -1,3 +1,6 @@
+"use client";
+
+import { useSession } from "next-auth/react";
 import BuyButton from "@/components/BuyButton";
 
 export default function ProLock({
@@ -7,9 +10,21 @@ export default function ProLock({
   children: React.ReactNode;
   title: string;
 }) {
-  // Dev mode mein ProLock bypass — seedha content dikhao
-  if (process.env.NODE_ENV === "development") {
+  const { data: session, status } = useSession();
+  const isPro = (session?.user as { isPro?: boolean } | undefined)?.isPro;
+
+  // Dev mode ya Pro user — seedha content dikhao
+  if (process.env.NODE_ENV === "development" || isPro) {
     return <>{children}</>;
+  }
+
+  // Session load ho rahi hai — spinner dikhao
+  if (status === "loading") {
+    return (
+      <div className="flex h-48 items-center justify-center rounded-2xl border border-slate-800 bg-slate-900">
+        <div className="h-6 w-6 animate-spin rounded-full border-2 border-violet-500 border-t-transparent" />
+      </div>
+    );
   }
 
   return (

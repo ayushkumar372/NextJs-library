@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
 import { buildPageMetadata, buildWebPageJsonLd } from "@/lib/seo";
 import BuyButton from "@/components/BuyButton";
 
@@ -63,7 +65,10 @@ const faqs = [
   },
 ];
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const session = await getServerSession(authOptions);
+  const isPro = (session?.user as { isPro?: boolean } | undefined)?.isPro ?? false;
+
   const jsonLd = buildWebPageJsonLd({
     path: "/pricing",
     title,
@@ -144,9 +149,18 @@ export default function PricingPage() {
                 ))}
               </ul>
 
-              <BuyButton size="lg" className="mt-10 w-full rounded-xl">
-                Get Lifetime Access — ₹69
-              </BuyButton>
+              {isPro ? (
+                <div className="mt-10 flex items-center justify-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 py-4 text-sm font-semibold text-emerald-400">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  You already have Pro access!
+                </div>
+              ) : (
+                <BuyButton size="lg" className="mt-10 w-full rounded-xl">
+                  Get Lifetime Access — ₹69
+                </BuyButton>
+              )}
 
               <p className="mt-4 text-center text-xs text-slate-500">
                 7-day money-back guarantee. No questions asked.
@@ -321,7 +335,12 @@ export default function PricingPage() {
               designs for just ₹69. Start building today.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <BuyButton size="lg">Get Lifetime Access — ₹69</BuyButton>
+              {!isPro && <BuyButton size="lg">Get Lifetime Access — ₹69</BuyButton>}
+              {isPro && (
+                <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-8 py-3.5 text-lg font-semibold text-emerald-400">
+                  ✓ You have Pro access
+                </div>
+              )}
               <Link
                 href="/showcase"
                 className="w-full rounded-xl border border-slate-700 px-10 py-3.5 text-lg font-semibold text-slate-300 transition hover:bg-slate-800 sm:w-auto"

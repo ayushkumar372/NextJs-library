@@ -106,9 +106,9 @@ export default function ComponentsPage() {
 
           {/* Search */}
           <div className="mt-8 max-w-lg">
-            <div className="relative">
+            <div className="relative cursor-default">
               <svg
-                className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
+                className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400 pointer-events-none"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -118,7 +118,7 @@ export default function ComponentsPage() {
               <input
                 type="text"
                 placeholder="Search components..."
-                className="w-full rounded-2xl border border-slate-700 bg-slate-800/50 py-3.5 pl-12 pr-4 text-sm text-white placeholder-slate-400 outline-none backdrop-blur-sm transition-all focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20"
+                className="w-full rounded-2xl border border-slate-700 bg-slate-800/50 py-3.5 pl-12 pr-4 text-sm text-white placeholder-slate-400 outline-none backdrop-blur-sm transition-all focus:border-violet-500"
               />
             </div>
           </div>
