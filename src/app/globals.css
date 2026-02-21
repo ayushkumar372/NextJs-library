@@ -51,17 +51,19 @@
   --animate-neon-flicker: neon-flicker 1.5s infinite alternate;
 }
 
-.dark {
-  --background: #0f172a;
-  --foreground: #e2e8f0;
-  --primary: #818cf8;
-  --primary-dark: #6366f1;
-  --secondary: #1e293b;
-  --accent: #a78bfa;
-  --border: #334155;
-  --muted: #94a3b8;
-  --card: #1e293b;
-  --card-hover: #334155;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --foreground: #e2e8f0;
+    --primary: #818cf8;
+    --primary-dark: #6366f1;
+    --secondary: #1e293b;
+    --accent: #a78bfa;
+    --border: #334155;
+    --muted: #94a3b8;
+    --card: #1e293b;
+    --card-hover: #334155;
+  }
 }
 
 body {
