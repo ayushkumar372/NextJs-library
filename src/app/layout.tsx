@@ -77,6 +77,14 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        {/* Anti-FOUC: theme set karo React hydrate hone se pehle */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

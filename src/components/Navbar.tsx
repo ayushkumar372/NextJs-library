@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+import { useTheme } from "./ThemeProvider";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -21,6 +22,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { data: session, status } = useSession();
   const user = session?.user as { name?: string; email?: string; image?: string; isPro?: boolean } | undefined;
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -54,6 +56,22 @@ export default function Navbar() {
 
         {/* Actions */}
         <div className="hidden items-center gap-3 md:flex">
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted transition-colors hover:bg-secondary hover:text-foreground"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? (
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            ) : (
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            )}
+          </button>
           {status === "loading" ? (
             <div className="h-8 w-8 animate-pulse rounded-full bg-secondary" />
           ) : user ? (
@@ -163,6 +181,28 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          {/* Mobile Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="mt-2 flex w-full items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-muted transition hover:bg-secondary hover:text-foreground"
+          >
+            {theme === "dark" ? (
+              <>
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                Light Mode
+              </>
+            ) : (
+              <>
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+                Dark Mode
+              </>
+            )}
+          </button>
+
           {user ? (
             <div className="mt-2 flex items-center justify-between rounded-lg border border-border px-3 py-2">
               <div>

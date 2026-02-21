@@ -1,4 +1,4 @@
-const RAZORPAY_LINK = "https://rzp.io/rzp/XfnL9M7F";
+const RAZORPAY_LINK = "https://rzp.io/rzp/YLjK6LS";
 
 export default function BuyButton({
   className,
