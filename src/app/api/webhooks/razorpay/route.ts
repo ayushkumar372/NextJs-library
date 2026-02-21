@@ -28,9 +28,14 @@ export async function POST(req: NextRequest) {
     if (email) {
       try {
         await connectDB();
+        // upsert: true — agar user ne sign in nahi kiya toh bhi record create ho jaayega
         await User.findOneAndUpdate(
           { email },
-          { isPro: true, proActivatedAt: new Date() }
+          {
+            $set: { isPro: true, proActivatedAt: new Date() },
+            $setOnInsert: { email, createdAt: new Date() },
+          },
+          { upsert: true }
         );
         console.log(`✅ Pro activated for: ${email}`);
       } catch (err) {
